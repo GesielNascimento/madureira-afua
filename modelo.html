@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madureira Afuá</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        :root {
+            /* CORES PRINCIPAIS - MUDE AQUI PARA ALTERAR TODA A PÁGINA */
+            --primary-green: #0f1736;    /* Verde escuro: navbar, títulos seções, nomes líderes, botões, seção doação */
+            --light-green: #032f77;      /* Verde médio: navbar gradiente, placeholders de imagem */
+            --accent-green: #020472;     /* Verde claro: ícones contato, bordas cards agenda, fotos líderes */
+            --gold: #00eeff;             /* Dourado: logo, hovers, botão principal, linhas decorativas, cargos líderes */
+            --cream: #f8f6f0;            /* Creme: fundos seções alternadas (sobre, agenda, notícias) */
+            --white: #ffffff;            /* Branco: fundos principais e textos */
+            --dark-gray: #010630;        /* Cinza escuro: footer */
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;         /* Deixa a imagem redonda */
+    background: white;          /* Fundo branco */
+    padding: 5px;               /* Espaço interno entre o logo e o círculo */
+    object-fit: contain;        /* Evita distorcer a logo */
+    box-shadow: 0 0 8px rgba(0,0,0,0.1); /* Opcional: sombra suave */
+    margin-right: 10px;
+}
+
+
+
+        .logo i {
+            margin-right: 0.5rem;
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(5, 1, 26, 0.8), rgba(7, 1, 63, 0.8)), url('/img/igreja.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 0; /* <<< Alterado */
+            padding-top: 80px; /* Garante que o conteúdo não fique por baixo da navbar */
+        }
+
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--primary-green);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 1rem auto;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap; /* Responsivo */
+        }
+
+        /* ===== SOBRE NÓS ===== */
+.about {
+    background: #ffffff;
+    padding: 4rem 2rem;
+}
+
+/* container apenas define largura */
+.about .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* flex container real */
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.about-text {
+    flex: 1 1 50%;
+    color: #333;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.about-image {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column-reverse; /* texto em cima, imagem embaixo */
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-text, .about-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    .about-image {
+        margin-top: 1.5rem;
+    }
+}
+
+
+
+
+        /* Leadership Section */
+        .leadership {
+            background: #f5f5f5;
+            padding: 4rem 2rem;
+        }
+
+        .leadership-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap; /* responsivo */
+        }
+
+        .leadership-photo {
+            flex: 1 1 40%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .leadership-img {
+            width: 100%;
+            height: 450px;        /* <<< define uma altura fixa */
+            object-fit: cover;    /* corta as partes sobrando, sem distorcer */
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .leadership-text {
+            flex: 1 1 50%;
+            color: #333;
+        }
+
+        .leadership-text .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #0d1b2a;
+        }
+
+        .title-underline {
+            width: 60px;
+            height: 4px;
+            background: #0a691a;
+            margin-bottom: 1.5rem;
+            border-radius: 2px;
+        }
+
+        .leadership-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+
+        /* Schedule Section */
+        .schedule {
+            background: #f5f5f5;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .schedule .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #0d1b2a;
+        }
+
+        .schedule .title-underline {
+            width: 60px;
+            height: 4px;
+            background: #00bcd4;
+            margin: 0 auto 2.5rem auto;
+            border-radius: 2px;
+        }
+
+        .schedule-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .schedule-card {
+            background: #0d1b2a;
+            color: white;
+            border-radius: 12px;
+            width: 260px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+
+        .schedule-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #00bcd4;
+        }
+
+        .schedule-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .schedule-day,
+        .schedule-time {
+            font-size: 1rem;
+            margin: 0.2rem 0;
+        }
+
+
+        /* Location Section */
+        .location {
+            background: #fff;
+            padding: 4rem 2rem;
+        }
+
+        .location-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .location-info {
+            flex: 1 1 40%;
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .location-info .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: #0d1b2a;
+        }
+
+        .title-underline {
+            width: 60px;
+            height: 4px;
+            background: #00bcd4;
+            border-radius: 2px;
+            margin: 0 0 2rem 0;
+        }
+
+        .location-map {
+            flex: 1 1 55%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            height: 300px;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 12px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .location-container {
+                flex-direction: column;
+            }
+            .location-map {
+                height: 250px;
+            }
+        }
+
+
+
+        /* News Section */
+        .news {
+            background: #0d1b2a;
+            padding: 4rem 2rem;
+            color: #fff;
+            text-align: center;
+        }
+
+        .news .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .news .title-underline {
+            background: #00bcd4;
+            width: 60px;
+            height: 4px;
+            border-radius: 2px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .news-grid {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .news-card {
+            background: #fff;
+            color: #333;
+            border-radius: 12px;
+            padding: 1.5rem;
+            width: 300px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        /* Cor do título só na seção de notícias */
+.news .section-title {
+    color: #fff; /* ou outra cor desejada */
+}
+
+
+        .news-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            font-weight: bold;
+        }
+
+        .news-date {
+            color: #00bcd4;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-text {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .news-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+
+                /* doações */
+        .donation {
+            background: #f5f5f5;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .donation .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0d1b2a;
+            margin-bottom: 0.5rem;
+        }
+
+        .donation .title-underline {
+            background: #00bcd4;
+            width: 60px;
+            height: 4px;
+            border-radius: 2px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .donation-grid {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .donation-card {
+            background: #0d1b2a;
+            color: #fff;
+            padding: 2rem;
+            border-radius: 16px;
+            width: 250px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .donation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .donation-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .donation-card p {
+            font-size: 1.1rem;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .donation-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+
+        /* === SEÇÃO DE CONTATO === */
+.contact {
+    padding: 4rem 2rem;
+    background: #f5f5f5;
+    text-align: center;
+}
+
+.contact .section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0d1b2a;
+    margin-bottom: 0.5rem;
+}
+
+.title-underline {
+    width: 60px;
+    height: 4px;
+    background: #00bcd4;
+    border-radius: 2px;
+    margin: 0 auto 2rem auto;
+}
+
+.contact-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.contact-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 2rem 1.5rem;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.contact-icon {
+    background: #00bcd4;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.contact-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #0d1b2a;
+}
+
+.contact-card p {
+    margin: 0.2rem 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    background: #25d366;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background: #20b857;
+}
+
+.whatsapp-button i {
+    font-size: 1.5rem;
+    margin-right: 8px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contact-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-card {
+        width: 100%;
+        max-width: 350px;
+    }
+    .whatsapp-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #0d1b2a;
+        flex-direction: column;
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+        padding: 1rem 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        display: flex; /* sempre flex, mas escondido por transform */
+    }
+
+    .nav-links.active {
+        transform: translateX(0); /* mostra o menu */
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .nav-links a {
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .mobile-menu {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+    }
+}
+
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero {
+                margin-top: 70px;
+            }
+
+            nav {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo.jpg" alt="AD Madureira Logo" class="logo-img">
+                AD_Madureira
+                </div>
+
+
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#leadership">Liderança</a></li>
+                <li><a href="#schedule">Agenda</a></li>
+                <li><a href="#location">Localização</a></li>
+                <li><a href="#news">Notícias</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content fade-in">
+            <h1>Faça Parte Desta Família</h1>
+            <p>Uma comunidade de fé, amor e esperança esperando por você</p>
+            <a href="#contact" class="cta-button">Faça-nos uma VIsita!</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+    <div class="container">
+        <h2 class="section-title fade-in">Sobre Nós</h2>
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <p>A Assembleia de Deus Madureira em Afuá é um lugar onde pessoas de todas as idades se reúnem para adorar a Deus, crescer na fé e servir à comunidade.</p>
+                <p>Em 32 anos de História no Município, esta igreja persiste na Doutrina saudável, fundamentada na Fiel Palavra de Deus!</p>
+                <p>Nossa missão é compartilhar o amor de Cristo através da palavra, comunhão e serviço, criando um ambiente acolhedor onde todos possam encontrar esperança e propósito.</p>
+            </div>
+            <div class="about-image fade-in">
+                <img src="img/igreja.jpg" alt="Foto da igreja" class="about-img">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="leadership">
+        <div class="container leadership-container">
+            <div class="leadership-photo fade-in">
+                <img src="img/lideranca-familia.jpg" alt="Liderança da igreja" class="leadership-img">
+            </div>
+            <div class="leadership-text fade-in">
+                <h2 class="section-title">Nossa Liderança</h2>
+                <p>
+                    Nildo Costa, Pastor Presidente há mais de 07 anos, apaixonado pela Palavra de Deus e cuidado das ovelhas.
+                    Casado com Andreia Costa, eles têm os meninos Eduardo e Asaff. Ambos têm dedicado suas vidas no exercício
+                    pastoral com excelência.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule">
+        <div class="container">
+            <h2 class="section-title">Agenda Semanal</h2>
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <i class="fas fa-book-open schedule-icon"></i>
+                    <h3 class="schedule-title">CULTO DE ENSINO</h3>
+                    <p class="schedule-day">Terça-feira</p>
+                    <p class="schedule-time">19:00</p>
+                </div>
+                <div class="schedule-card">
+                    <i class="fas fa-book-open schedule-icon"></i>
+                    <h3 class="schedule-title">ESCOLA BÍBLICA</h3>
+                    <p class="schedule-day">Domingo</p>
+                    <p class="schedule-time">08:00</p>
+                </div>
+                <div class="schedule-card">
+                    <i class="fas fa-home schedule-icon"></i>
+                    <h3 class="schedule-title">CULTO NO LAR</h3>
+                    <p class="schedule-day">Terça e Quinta</p>
+                    <p class="schedule-time">19:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Notícias Section -->
+
+        <section id="news" class="news">
+        <div class="container">
+            <h2 class="section-title">Últimas Notícias</h2>
+
+
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="img/noticia1.jpg" alt="Notícia 1">
+                    </div>
+                    <h3>Conferência da Família</h3>
+                    <p class="news-date">10 de Agosto de 2025</p>
+                    <p class="news-text">Três dias de ensino e adoração com convidados especiais. Participe com sua família!</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="img/noticia2.jpg" alt="Notícia 2">
+                    </div>
+                    <h3>Campanha do Agasalho</h3>
+                    <p class="news-date">01 de Julho de 2025</p>
+                    <p class="news-text">Ajude a aquecer vidas neste inverno. Traga suas doações de roupas e cobertores.</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="img/noticia3.jpg" alt="Notícia 3">
+                    </div>
+                    <h3>Retiro de Jovens</h3>
+                    <p class="news-date">15 de Setembro de 2025</p>
+                    <p class="news-text">Um final de semana de comunhão, aprendizado e avivamento para toda a juventude.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Location Section -->
+    <section id="donation" class="donation">
+        <div class="container">
+            <h2 class="section-title">Contribua com a Obra</h2>
+
+            <div class="donation-grid">
+                <div class="donation-card">
+                    <h3>PIX</h3>
+                    <p>00.000.000/0001-55</p>
+                </div>
+                <div class="donation-card">
+                    <h3>CARTÃO</h3>
+                    <p>Crédito e Débito</p>
+                </div>
+                <div class="donation-card">
+                    <h3>PESSOAL</h3>
+                    <p>Presencialmente nos nossos cultos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container location-container">
+            <div class="location-info fade-in">
+                <h2 class="section-title">Localização</h2>
+                <p><strong>Endereço:</strong> Rua Domingos Cardoso – Afuá/PA</p>
+                <p><strong>Telefones:</strong> (96) 99207-8175 / 98412-9155</p>
+                <p><strong>E-mail:</strong> contato@admadureira.com.br</p>
+            </div>
+            <div class="location-map fade-in">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.7543040016714!2d-50.7379!3d-0.1545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMCwwMTQ1wqA!5e0!3m2!1spt-BR!2sbr!4v1690934845661!5m2!1spt-BR!2sbr" 
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Horário de Funcionamento</h3>
+                    <p>Segunda a Sexta: 9h às 17h</p>
+                    <p>Sábado: 9h às 12h</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Telefone</h3>
+                    <p>(11) 1234-5678</p>
+                    <p>(11) 98765-4321</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>E-mail</h3>
+                    <p>contato@madureira.com.br</p>
+                    <p>pastor@madureira.com.br</p>
+                </div>
+            </div>
+            <a href="https://wa.me/5591992907337?text=Olá! Gostaria de saber mais sobre a igreja." 
+            class="whatsapp-button" target="_blank">
+                <i class="fab fa-whatsapp"></i> Fale Conosco no WhatsApp
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links fade-in">
+                <a href="https://www.facebook.com/admadureira.afua" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/ad.madureira_afua/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2024 Igreja Comunidade da Esperança. Todos os direitos reservados.</p>
+            <p>Desenvolvido por GesielNascimento para servir ao Reino de Deus</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            
+            if (window.scrollY > 100) {
+                // Quando rola a página, usa as mesmas cores das variáveis CSS com transparência
+                header.style.background = 'linear-gradient(135deg, var(--primary-green), var(--light-green))';
+                header.style.opacity = '0.95';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                // Quando volta ao topo, volta ao normal
+                header.style.background = 'linear-gradient(135deg, var(--primary-green), var(--light-green))';
+                header.style.opacity = '1';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Add some interactivity to cards
+        document.querySelectorAll('.leader-card, .news-card, .schedule-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
