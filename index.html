@@ -57,6 +57,8 @@
             align-items: center;
             font-size: 1.5rem;
             font-weight: bold;
+            color: white;
+            text-decoration: none;
         }
 
         .logo-img {
@@ -69,6 +71,11 @@
     box-shadow: 0 0 8px rgba(0,0,0,0.1); /* Opcional: sombra suave */
     margin-right: 10px;
 }
+
+.logo:hover {
+    opacity: 0.8; /* pequeno efeito ao passar o mouse */
+}
+
 
 
 
@@ -808,10 +815,10 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">
-                <img src="img/logo.jpg" alt="AD Madureira Logo" class="logo-img">
-                AD_Madureira
-                </div>
+            <a href="#home" class="logo">
+    <img src="img/logo.jpg" alt="AD Madureira Logo" class="logo-img">
+    AD_Madureira
+</a>
 
 
             <ul class="nav-links">
